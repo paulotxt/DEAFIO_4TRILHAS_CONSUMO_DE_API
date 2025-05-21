@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Painel de Indicadores Educacionais</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <header>
+        <a href="#" class="back-link">← VOLTAR A LANDING PAGE</a>
+    </header>
+
+    <main>
+        <aside class="sidebar">
+            <button class="filter-title">FILTRO</button>
+
+        
+
+            <div class="filter-group">
+                <label for="grafico">TIPO DE GRÁFICO</label>
+                <div class="input-with-icon">
+                    <input type="text" id="grafico" placeholder="Selecione">
+                    <span class="star-icon">⭐</span>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <label for="regiao">REGIÃO</label>
+                <div class="input-with-icon">
+                    <input type="text" id="regiao" placeholder="Selecione">
+                    <span class="star-icon">⭐</span>
+                  </div>
+            </div>
+
+            <div class="filter-group">
+                <label for="estado">ESTADO</label>
+                <div class="input-with-icon">
+                    <input type="text" id="estado" placeholder="Selecione">
+                    <span class="star-icon">⭐</span>
+                  </div>
+            </div>
+
+            <div class="filter-group">
+                <label for="ano">ANO</label>
+                <div class="input-with-icon">
+                    <input type="text" id="ano" placeholder="Selecione">
+                    
+                    <span class="star-icon">⭐ </span>
+                  </div>
+            </div>
+        </aside>
+
+        <section class="content">
+            <h1>PAINEL DE INDICADORES EDUCACIONAIS</h1>
+
+            <div class="map-section">
+                <div class="info-columns">
+                    <div class="info-placeholder" id="ideb">
+                      <div class="info-title">IDEB</div>
+                      <div class="info-value"></div>
+                      <div class="info-desc">Índice de Desenvolvimento da Educação Básica</div>
+                    </div>
+                    <div class="info-placeholder" id="aprendizado">
+                      <div class="info-title">Aprendizado</div>
+                      <div class="info-value"></div>
+                      <div class="info-desc">Indicador de aprendizado</div>
+                    </div>
+                    <div class="info-placeholder" id="fluxo">
+                      <div class="info-title">Fluxo</div>
+                      <div class="info-value"></div>
+                      <div class="info-desc">Indicador de fluxo escolar</div>
+                    </div>
+                  </div>
+                  
+
+                <div class="map-placeholder">
+                    <img src="img/66a582b513c035ef8602b020d659f27dcf1b3131.png" alt="Mapa do Brasil">
+                </div>
+
+                <div class="info-columns">
+                    <div class="info-placeholder"></div>
+                    <div class="info-placeholder"></div>
+                    <div class="info-placeholder"></div>
+                </div>
+            </div>
+
+            <div class="chart-placeholder"></div>
+
+            <button class="export-button">EXPORTAR DADOS</button>
+        </section>
+    
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>
