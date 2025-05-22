@@ -1,8 +1,7 @@
-
 document.addEventListener('DOMContentLoaded', function () {
-  const idebElement = document.getElementById('ideb');
-  const aprendizadoElement = document.getElementById('aprendizado');
-  const fluxoElement = document.getElementById('fluxo');
+  const idebElement = document.querySelector('#ideb .info-value');
+  const aprendizadoElement = document.querySelector('#aprendizado .info-value');
+  const fluxoElement = document.querySelector('#fluxo .info-value');
 
   const baseURL = 'https://api.qedu.org.br/v1/ideb';
   const token = 'uCepcSkwipY8IqOGft3XWe8RWvUTyjr94abLkYN6';
@@ -21,22 +20,23 @@ document.addEventListener('DOMContentLoaded', function () {
     },
     params
   })
-    .then((response) => {
-      const dataItem = response.data?.data?.[0];
+  .then((response) => {
+    console.log('Resposta da API:', response.data);
 
-      if (!dataItem) {
-        throw new Error('Nenhum dado encontrado na resposta da API');
-      }
+    const dataItem = response.data?.data?.[0] || response.data?.data || response.data;
 
-      idebElement.textContent = `IDEB: ${parseFloat(dataItem.ideb).toFixed(2)}`;
-      aprendizadoElement.textContent = `Aprendizado: ${parseFloat(dataItem.aprendizado).toFixed(2)}`;
-      fluxoElement.textContent = `Fluxo: ${parseFloat(dataItem.fluxo).toFixed(2)}`;
-    })
-    .catch((error) => {
-      console.error('Erro na requisição:', error);
-      idebElement.textContent = 'Erro ao carregar IDEB';
-      aprendizadoElement.textContent = 'Erro ao carregar Aprendizado';
-      fluxoElement.textContent = 'Erro ao carregar Fluxo';
-    });
+    if (!dataItem) {
+      throw new Error('Nenhum dado encontrado na resposta da API');
+    }
+
+    idebElement.textContent = parseFloat(dataItem.ideb).toFixed(2);
+    aprendizadoElement.textContent = parseFloat(dataItem.aprendizado).toFixed(4);
+    fluxoElement.textContent = parseFloat(dataItem.fluxo).toFixed(4);
+  })
+  .catch((error) => {
+    console.error('Erro na requisição:', error);
+    idebElement.textContent = 'Erro';
+    aprendizadoElement.textContent = 'Erro';
+    fluxoElement.textContent = 'Erro';
+  });
 });
-
